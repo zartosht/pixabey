@@ -1,0 +1,30 @@
+{
+  "name": "zartosht/pixabey",
+  "description": "Laravel Package for interacting with pixabey REST api",
+  "require": {
+    "php": "^7.2",
+    "ixudra/curl": "^6.16",
+    "illuminate/support": "^5.7"
+  },
+  "authors": [
+    {
+      "name": "Zartosht Sepideman",
+      "email": "xashayarsha@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Zartosht\\Pixabey\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Zartosht\\Pixabey\\PixabeyServiceProvider"
+      ],
+      "aliases": {
+        "Curl": "Zartosht\\Pixabey\\Facades\\Pixabey"
+      }
+    }
+  }
+}
