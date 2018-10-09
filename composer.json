@@ -4,7 +4,8 @@
   "require": {
     "php": "^7.2",
     "ixudra/curl": "^6.16",
-    "illuminate/support": "^5.7"
+    "illuminate/support": "^5.7",
+    "ext-json": "*"
   },
   "authors": [
     {
