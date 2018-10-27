@@ -8,6 +8,7 @@ use stdClass;
 class Builder
 {
     const API_BASE_URL = "https://pixabay.com/api/";
+    const OUT_OF_RANGE_ERROR = '[ERROR 400] "page" is out of valid range.';
 
     /** @var array $searchOptions Array of api options */
     protected $searchOptions = [
@@ -651,6 +652,9 @@ class Builder
         $this->removeEmptyOptions();
         $response = Curl::to(self::API_BASE_URL)
             ->withData($this->searchOptions)->get();
+        if ($response == self::OUT_OF_RANGE_ERROR) {
+            throw new Exception(self::OUT_OF_RANGE_ERROR, 416);
+        }
         return json_decode($response);
     }
 
@@ -659,6 +663,9 @@ class Builder
         $this->removeEmptyOptions();
         $response = Curl::to(self::API_BASE_URL)
             ->withData($this->searchOptions)->post();
+        if ($response == self::OUT_OF_RANGE_ERROR) {
+            throw new Exception(self::OUT_OF_RANGE_ERROR, 416);
+        }
         return json_decode($response);
     }
 }
