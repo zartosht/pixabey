@@ -653,7 +653,7 @@ class Builder
         $response = Curl::to(self::API_BASE_URL)
             ->withData($this->searchOptions)->get();
         if ($response == self::OUT_OF_RANGE_ERROR) {
-            throw new Exception(self::OUT_OF_RANGE_ERROR, 416);
+            throw new \Exception(self::OUT_OF_RANGE_ERROR, 416);
         }
         return json_decode($response);
     }
@@ -664,7 +664,7 @@ class Builder
         $response = Curl::to(self::API_BASE_URL)
             ->withData($this->searchOptions)->post();
         if ($response == self::OUT_OF_RANGE_ERROR) {
-            throw new Exception(self::OUT_OF_RANGE_ERROR, 416);
+            throw new \Exception(self::OUT_OF_RANGE_ERROR, 416);
         }
         return json_decode($response);
     }
